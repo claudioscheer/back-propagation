@@ -19,6 +19,7 @@ class Sigmoid(BaseNode):
         return self.forward_result
 
     def backward(self, previous):
+        # formula to get the derivative of the Sigmoid function
         self.backward_gradient = (
             (1 - self.forward_result) * self.forward_result
         ) * previous

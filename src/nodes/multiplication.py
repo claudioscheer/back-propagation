@@ -2,26 +2,27 @@ from . import BaseNode
 import numpy as np
 
 
-def _f(q, z):
-    return q * z
+def _f(x, y):
+    return x * y
 
 
 class Multiplication(BaseNode):
-    def __init__(self, q, z):
+    def __init__(self, x, y):
         """
-            q * y
+            x * y
         """
         super(Multiplication, self).__init__()
-        self.q = q
-        self.z = z
+        self.x = x
+        self.y = y
 
     def forward(self):
-        self.forward_result = _f(self.q, self.z)
+        self.forward_result = _f(self.x, self.y)
         return self.forward_result
 
     def backward(self, previous):
         # store the partial derivative for each input
-        self.local_gradient_q = (_f(self.q + 1e-7, self.z) - self.forward_result) / 1e-7
-        self.local_gradient_z = (_f(self.q, self.z + 1e-7) - self.forward_result) / 1e-7
-        self.backward_gradient_q = previous * self.local_gradient_q
-        self.backward_gradient_z = previous * self.local_gradient_z
+        self.local_gradient_x = (_f(self.x + 1e-7, self.y) - self.forward_result) / 1e-7
+        self.local_gradient_y = (_f(self.x, self.y + 1e-7) - self.forward_result) / 1e-7
+        self.backward_gradient_x = previous * self.local_gradient_x
+        self.backward_gradient_y = previous * self.local_gradient_y
+        return [self.backward_gradient_x, self.backward_gradient_y]

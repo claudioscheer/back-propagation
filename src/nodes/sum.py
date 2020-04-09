@@ -25,3 +25,4 @@ class Sum(BaseNode):
         self.local_gradient_y = (_f(self.x, self.y + 1e-7) - self.forward_result) / 1e-7
         self.backward_gradient_x = previous * self.local_gradient_x
         self.backward_gradient_y = previous * self.local_gradient_y
+        return [self.backward_gradient_x, self.backward_gradient_y]
