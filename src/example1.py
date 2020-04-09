@@ -1,4 +1,5 @@
 import nodes
+import torch
 
 # forward process
 s1 = nodes.Add(-2, 5)
@@ -16,3 +17,13 @@ b_s1 = s1.backward(b_m1[0])
 print(b_s1[0])
 # partial derivative of 5
 print(b_s1[1])
+
+# validation with PyTorch
+t1 = torch.tensor(-2.0, requires_grad=True)
+t2 = torch.tensor(5.0, requires_grad=True)
+t3 = torch.tensor(-4.0, requires_grad=True)
+result = (t1 + t2) * t3
+result.backward()
+print(t1.grad)
+print(t2.grad)
+print(t3.grad)
