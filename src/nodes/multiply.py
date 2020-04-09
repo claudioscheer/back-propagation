@@ -6,12 +6,12 @@ def _f(x, y):
     return x * y
 
 
-class Multiplication(BaseNode):
+class Multiply(BaseNode):
     def __init__(self, x, y):
         """
             x * y
         """
-        super(Multiplication, self).__init__()
+        super(Multiply, self).__init__()
         self.x = x
         self.y = y
 

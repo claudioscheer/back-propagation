@@ -2,7 +2,7 @@ import nodes
 
 # forward process
 s1 = nodes.Add(-2, 5)
-m1 = nodes.Multiplication(s1.forward(), -4)
+m1 = nodes.Multiply(s1.forward(), -4)
 result = m1.forward()
 
 # back-propagation process
