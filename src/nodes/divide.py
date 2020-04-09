@@ -1,5 +1,4 @@
 from . import BaseNode
-import numpy as np
 
 
 def _f(x, y):
