@@ -2,5 +2,5 @@
 
 from .base import BaseNode
 from .multiplication import Multiplication
-from .sum import Sum
+from .add import Add
 from .sigmoid import Sigmoid

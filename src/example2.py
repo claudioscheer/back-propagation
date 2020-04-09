@@ -3,8 +3,8 @@ import nodes
 # forward process
 m1 = nodes.Multiplication(2, -1)
 m2 = nodes.Multiplication(-3, -2)
-s1 = nodes.Sum(m1.forward(), m2.forward())
-s2 = nodes.Sum(s1.forward(), -3)
+s1 = nodes.Add(m1.forward(), m2.forward())
+s2 = nodes.Add(s1.forward(), -3)
 sig1 = nodes.Sigmoid(s2.forward())
 result = sig1.forward()
 

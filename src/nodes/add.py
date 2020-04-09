@@ -6,12 +6,12 @@ def _f(x, y):
     return x + y
 
 
-class Sum(BaseNode):
+class Add(BaseNode):
     def __init__(self, x, y):
         """
             x + y
         """
-        super(Sum, self).__init__()
+        super(Add, self).__init__()
         self.x = x
         self.y = y
 
