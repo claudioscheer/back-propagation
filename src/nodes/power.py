@@ -6,12 +6,12 @@ def _f(x, y):
     return x ** y
 
 
-class Exponentiation(BaseNode):
+class Power(BaseNode):
     def __init__(self, x, y):
         """
             x ** y
         """
-        super(Exponentiation, self).__init__()
+        super(Power, self).__init__()
         self.x = x
         self.y = y
 

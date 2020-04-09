@@ -4,5 +4,5 @@ from .base import BaseNode
 from .multiply import Multiply
 from .add import Add
 from .divide import Divide
-from .exponentiation import Exponentiation
+from .power import Power
 from .sigmoid import Sigmoid
