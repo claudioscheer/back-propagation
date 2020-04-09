@@ -1,4 +1,5 @@
 import nodes
+import torch
 
 # forward process
 m1 = nodes.Multiply(2, -1)
@@ -22,3 +23,17 @@ print(b_m1)
 # b_m2[0] is the partial derivative of -3
 # b_m2[1] is the partial derivative of -2
 print(b_m2)
+
+# validation with PyTorch
+t1 = torch.tensor(2.0, requires_grad=True)
+t2 = torch.tensor(-1.0, requires_grad=True)
+t3 = torch.tensor(-3.0, requires_grad=True)
+t4 = torch.tensor(-2.0, requires_grad=True)
+t5 = torch.tensor(-3.0, requires_grad=True)
+result = torch.sigmoid(((t1 * t2) + (t3 * t4)) + t5)
+result.backward()
+print(t1.grad)
+print(t2.grad)
+print(t3.grad)
+print(t4.grad)
+print(t5.grad)
